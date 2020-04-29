@@ -1,0 +1,22 @@
+
+version: '3'
+
+services:
+
+    game:
+
+        build: .
+
+        env_file:
+            - .env
+
+        environment:
+            - DISPLAY=${DISPLAY}
+
+        volumes:
+            - /tmp/.X11-unix:/tmp/.X11-unix
+            - /dev/snd:/dev/snd
+
+        hostname: "vinyl"
+
+        privileged: true
